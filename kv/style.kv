@@ -1,0 +1,180 @@
+ScreenManager:
+    WelcomeScreen:
+    MainScreen:
+    SignIn:
+    Signup:
+<WelcomeScreen>:
+    name: 'WelcomeScreen'
+    MDScreen:
+        md_bg_color: [35/255, 59/255, 54/255, 1]
+        MDLabel:
+            text: "Login"
+            font_style: 'H2'
+            halign: 'center'
+            pos_hint: {'center_y': 0.9}
+        MDLabel:
+            text: "&"
+            font_style: 'H2'
+            halign: 'center'
+            pos_hint: {'center_y': 0.7}
+        MDLabel:
+            text: "Sign up"
+            font_style: 'H2'
+            halign: 'center'
+            pos_hint: {'center_y': 0.5}
+        MDRoundFlatButton:
+            text:"Login"
+            pos_hint: {'center_x':0.4, 'center_y':0.3}
+            size_hint: (0.13, 0.1)
+            on_press:
+                root.manager.current = 'sign in'
+                root.manager.transition.direction = 'left'
+        MDRoundFlatButton:
+            text:"sign up"
+            pos_hint: {'center_x':0.6, 'center_y':0.3}
+            size_hint: (0.13, 0.1)
+            on_press:
+                root.manager.current = 'sign up'
+                root.manager.transition.direction = 'right'
+
+<SignIn>:
+    name: 'sign in'
+    MDScreen:
+        id: sign_in
+        md_bg_color: [35/255, 59/255, 54/255, 1]
+        MDCard:
+            size_hint: None, None
+            size: 320, 400
+            pos_hint: {"center_x":.5, "center_y":.5}
+            elevation: 15
+            md_bg_color: [35/255, 49/255, 48/255, 1]
+            padding: 20
+            spacing: 30
+            orientation: "vertical"
+            MDLabel:
+                text: "LOGIN"
+                font_style: 'Button'
+                font_size: 40
+                halign: "center"
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+            MDTextFieldRound:
+                id: username
+                hint_text: "username"
+                icon_right: "account"
+                size_hint_x: None
+                width: 220
+                pos_hint: {"center_x":.5}
+                color_active: [1,1,1,1]
+            MDTextFieldRound:
+                id: Password
+                hint_text: "Password"
+                icon_right: "eye-off"
+                size_hint_x: None
+                width: 220
+                pos_hint: {"center_x":.5}
+                password: True
+                color_active: [1,1,1,1]
+            MDTextFieldRound:
+                id: Email
+                hint_text: "Email Id"
+                icon_right: "email"
+                size_hint_x: None
+                width: 220
+                pos_hint: {"center_x":.5}
+                color_active: [1,1,1,1]
+            MDRoundFlatButton:
+                text: "Sign In"
+                pos_hint: {"center_x":.5}
+                font_size: 15
+                on_press:
+                    app.show_data()
+                    root.manager.current = 'mainScreen'
+            Widget:
+                size_hint_y: None
+                height: 30
+<Signup>:
+    name: 'sign up'
+    MDScreen:
+        md_bg_color: [35/255, 59/255, 54/255, 1]
+        MDCard:
+            size_hint: None, None
+            size: 400, 500
+            pos_hint: {"center_x":.5, "center_y":.5}
+            elevation: 15
+            md_bg_color: [40/255, 49/255, 48/255, 1]
+            padding: 20
+            spacing: 30
+            orientation: "vertical"
+            MDLabel:
+                text: "Sign Up"
+                font_style: 'Button'
+                font_size: 45
+                halign: "center"
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 20
+            MDTextFieldRound:
+                id: UserName
+                hint_text: "UserName"
+                icon_right: "account"
+                size_hint_x: None
+                width: 280
+                pos_hint: {'center_x': .5}
+                font_size: 20
+                color_active:[1,1,1,1]
+            MDTextFieldRound:
+                id: User_id
+                hint_text: "User_id"
+                icon_right: "account"
+                size_hint_x: None
+                width: 280
+                pos_hint: {'center_x': .5}
+                font_size: 20
+                color_active:[1,1,1,1]
+            MDTextFieldRound:
+                id: Password
+                hint_text: "Password"
+                icon_right: "eye-off"
+                size_hint_x: None
+                width: 280
+                pos_hint: {'center_x': .5}
+                font_size: 20
+                color_active:[1,1,1,1]
+            MDTextFieldRound:
+                id: Confirm_Password
+                hint_text: "Confirm Password"
+                icon_right: "eye-off"
+                size_hint_x: None
+                width: 280
+                pos_hint: {'center_x': .5}
+                font_size: 20
+                color_active:[1,1,1,1]
+            MDTextFieldRound:
+                Id: Mobile_number
+                hint_text: "Mobile Number"
+                icon_right: "phone"
+                size_hint_x: None
+                width: 280
+                pos_hint: {'center_x': .5}
+                font_size: 20
+                color_active:[1,1,1,1]
+            MDRoundFlatButton:
+                text: "SIGN-UP"
+                pos_hint: {'center_x':.5}
+                theme_text_color: "Custom"
+                text_color: [0,0,0,1]
+
+
+
+
+
+<MainScreen>:
+    name: 'mainScreen'
+    MDLabel:
+        id: username_info
+        text: 'Hello Main'
+        font_style: 'H1'
+        halign: 'center'
+
